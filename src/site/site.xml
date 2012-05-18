@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+  <project name="Java Service API">
+  <bannerLeft>
+    <name>Java Service API</name>
+    <src>images/logo.png</src>
+    <href>http://maven.apache.org/</href>
+  </bannerLeft>
+  <bannerRight>
+    <src>http://www.cobalt.com/templates/cobalt_files/images/header_logo.gif</src>
+  </bannerRight>
+  <skin>
+    <groupId>org.apache.maven.skins</groupId>
+    <artifactId>maven-stylus-skin</artifactId>
+  </skin>
+  <publishDate format="dd MMM yyyy" position="left" />
+  <version position="left" />
+  <body>
+    <links>
+      <item name="Domain Model" href="http://cobalt.main.cobaltgroup.com/SiteDirectory/ABU/EA/domain_modeling/Shared%20Documents/Cobalt%20Domain/index.html"/>
+      <item name="Operational Guidelines" href="http://cobalt.main.cobaltgroup.com/SiteDirectory/ABU/EA/strategy/Shared%20Documents/Operational%20Guidelines.doc"/>
+      <item name="Cobalt's Glossary" href="http://cobalt.main.cobaltgroup.com/ResourceLibrary/Glossary/Forms/AllPages.aspx"/>
+      <item name="Project Management" href="http://cobalt.main.cobaltgroup.com/SiteDirectory/ABU/PMO/default.aspx"/>
+      <item name="SAD" href="http://cobalt.main.cobaltgroup.com/SiteDirectory/ABU/EA/default.aspx"/>
+    </links>
+
+    <menu name="Overview">
+      <item name="Introduction" href="/index.html"/>
+      <item name="Usage" href="/usage.html"/>
+      <item name="Goals" href="/goals.html"/>
+    </menu>
+
+    <!--menu name="Examples">
+      <item name="Specifying the Remote Repositories" href="/examples/remote-repositories.html"/>
+      <item name="Creating a Simple Java Application" href="/examples/simple.html"/>
+	  <item name="Creating a Site" href="/examples/site.html"/>
+      <item name="Creating a Simple j2ee Project" href="/examples/j2ee-simple.html"/>
+	  <item name="Creating a Webapp" href="/examples/webapp.html"/>
+	  <item name="Creating a Portlet" href="/examples/portlet.html"/>
+      <item name="Creating a Mojo" href="/examples/mojo.html"/>
+	  <item name="Creating your own Archetype" href="/examples/archetype.html"/>
+    </menu-->
+
+    <!--menu name="Specification">
+      <item name="Introduction to archetype plugin" href="./main.html"/>
+      <item name="What are archetypes ?" href="./archetypes.html"/>
+      <item name="Project Generation" href="./generation.html"/>
+      <item name="Archetype Creation" href="./creation.html"/>
+      <item name="Handcrafting archetypes" href="./archetype-handcraft.html"/>
+      <item name="Mojos of the plugin" href="./mojos.html"/>
+      <item name="Desing of the archetype plugin" href="./design.html"/>
+    </menu-->
+
+    <menu ref="reports"/>
+  </body>
+</project>
