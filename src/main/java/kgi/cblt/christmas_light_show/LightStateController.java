@@ -12,7 +12,7 @@ public class LightStateController implements KeyListener {
     LightsState lightState;
     LightsAutoPlayer autoPlayer;
 
-    public LightStateController(LightsState lightState,LightsAutoPlayer autoPlayer) {
+    public LightStateController(LightsState lightState, LightsAutoPlayer autoPlayer) {
         this.lightState = lightState;
         this.autoPlayer = autoPlayer;
     }
@@ -22,97 +22,86 @@ public class LightStateController implements KeyListener {
 
     public void keyPressed(KeyEvent ke) {
         switch (ke.getKeyCode()) {
-            case KeyEvent.VK_R:
-                lightState.roofOn = !lightState.roofOn;
-                lightState.treeOn = lightState.roofOn;
-                lightState.w3On = lightState.roofOn;
-                break;
             case KeyEvent.VK_E:
-                autoPlayer.rollWindows = !autoPlayer.rollWindows;
+                autoPlayer.roll2_5 = !autoPlayer.roll2_5;
                 break;
             case KeyEvent.VK_W:
-                autoPlayer.rollLines = !autoPlayer.rollLines;
+                autoPlayer.roll6_9 = !autoPlayer.roll6_9;
                 break;
             case KeyEvent.VK_A:
-                lightState.w1On = true;
+                lightState.L2 = true;
                 break;
             case KeyEvent.VK_S:
-                lightState.w2On = true;
+                lightState.L3 = true;
                 break;
             case KeyEvent.VK_D:
-                lightState.roofOn = true;
-                lightState.treeOn = true;
-                lightState.w3On = true;
+                lightState.L4 = true;
                 break;
             case KeyEvent.VK_F:
-                lightState.w4On = true;
+                lightState.L5 = true;
                 break;
             case KeyEvent.VK_J:
-                lightState.w5On = true;
+                lightState.L6 = true;
                 break;
             case KeyEvent.VK_K:
-                lightState.w6On = true;
+                lightState.L7 = true;
                 break;
             case KeyEvent.VK_L:
-                lightState.w7On = true;
+                lightState.L8 = true;
                 break;
-            case KeyEvent.VK_1:
-                lightState.l1On = true;
+            case KeyEvent.VK_SEMICOLON:
+                lightState.L9 = true;
                 break;
-            case KeyEvent.VK_2:
-                lightState.l2On = true;
+            case KeyEvent.VK_U:
+                lightState.L10 = true;
                 break;
-            case KeyEvent.VK_3:
-                lightState.l3On = true;
+            case KeyEvent.VK_I:
+                lightState.L11 = true;
                 break;
-            case KeyEvent.VK_4:
-                lightState.l4On = true;
+            case KeyEvent.VK_O:
+                lightState.L12 = true;
+            case KeyEvent.VK_P:
+                lightState.L13 = true;
         }
 
     }
 
     public void keyReleased(KeyEvent ke) {
         switch (ke.getKeyCode()) {
-            case KeyEvent.VK_R:
-
-                break;
-            case KeyEvent.VK_E:
-
-                break;
             case KeyEvent.VK_A:
-                lightState.w1On = false;
+                lightState.L2 = false;
                 break;
             case KeyEvent.VK_S:
-                lightState.w2On = false;
+                lightState.L3 = false;
                 break;
             case KeyEvent.VK_D:
-                lightState.roofOn = false;
-                lightState.treeOn = false;
-                lightState.w3On = false;
+                lightState.L4 = false;
                 break;
             case KeyEvent.VK_F:
-                lightState.w4On = false;
+                lightState.L5 = false;
                 break;
             case KeyEvent.VK_J:
-                lightState.w5On = false;
+                lightState.L6 = false;
                 break;
             case KeyEvent.VK_K:
-                lightState.w6On = false;
+                lightState.L7 = false;
                 break;
             case KeyEvent.VK_L:
-                lightState.w7On = false;
+                lightState.L8 = false;
                 break;
-            case KeyEvent.VK_1:
-                lightState.l1On = false;
+            case KeyEvent.VK_SEMICOLON:
+                lightState.L9 = false;
                 break;
-            case KeyEvent.VK_2:
-                lightState.l2On = false;
+            case KeyEvent.VK_U:
+                lightState.L10 = false;
                 break;
-            case KeyEvent.VK_3:
-                lightState.l3On = false;
+            case KeyEvent.VK_I:
+                lightState.L11 = false;
                 break;
-            case KeyEvent.VK_4:
-                lightState.l4On = false;
+            case KeyEvent.VK_O:
+                lightState.L12 = false;
+            case KeyEvent.VK_P:
+                lightState.L13 = false;
         }
     }
 

@@ -18,13 +18,16 @@ public class Canvas extends JPanel {
     LightsState lightsState;
     Thread painterThread;
 
-    public Canvas(String imgSource, LightsState lightsState) throws IOException {
-        img = ImageIO.read(new File(imgSource));
+    LightShape[] lightShapes;
+
+    public Canvas(String imgSourceName, LightShape[] lightShapes, LightsState lightsState) throws IOException {
+        img = ImageIO.read(new File(imgSourceName));
+        this.lightShapes = lightShapes;
         this.lightsState = lightsState;
-        painterThread = new Thread(){
+        painterThread = new Thread() {
             @Override
             public void run() {
-                while(true){
+                while (true) {
                     Canvas.this.repaint();
                     try {
                         Thread.sleep(150);
@@ -40,67 +43,54 @@ public class Canvas extends JPanel {
     public void paint(Graphics g) {
         g.drawImage(img, 0, 0, null);
         Graphics2D g2 = (Graphics2D) g;
-        g2.setPaint(Color.RED);
-        Stroke st = new BasicStroke(4);
-        g2.setStroke(st);
-        if (lightsState.roofOn) {
-            g2.draw(new Line2D.Double(42, 70, 1520, 70));
+
+        for (int i = 0; i < lightShapes.length; i++) {
+            LightShape lightShape = lightShapes[i];
+            if (lightIsOn(i, lightsState)) {
+                drawLightShape(lightShape, g2);
+            }
         }
-        if (lightsState.treeOn) {
-            g2.draw(new Line2D.Double(905, 155, 1000, 280));
-            g2.draw(new Line2D.Double(1000, 280, 1120, 300));
-        }
-        if (lightsState.w1On) {
-            g2.draw(new Line2D.Double(140, 85, 480, 85));
-            g2.draw(new Line2D.Double(480, 85, 480, 260));
-            g2.draw(new Line2D.Double(140, 85, 140, 260));
-        }
-        if (lightsState.w2On) {
-            g2.draw(new Line2D.Double(140, 380, 480, 380));
-            g2.draw(new Line2D.Double(140, 380, 140, 480));
-            g2.draw(new Line2D.Double(480, 380, 480, 480));
-        }
-        if (lightsState.w3On) {
-            g2.draw(new Line2D.Double(590, 100, 785, 100));
-            g2.draw(new Line2D.Double(590, 100, 590, 250));
-            g2.draw(new Line2D.Double(590, 250, 785, 250));
-            g2.draw(new Line2D.Double(785, 100, 785, 250));
-        }
-        if (lightsState.w4On) {
-            g2.draw(new Line2D.Double(880, 100, 1075, 100));
-            g2.draw(new Line2D.Double(880, 100, 880, 195));
-            g2.draw(new Line2D.Double(1075, 100, 1075, 195));
-        }
-        if (lightsState.w5On) {
-            g2.draw(new Line2D.Double(880, 380, 880, 475));
-            g2.draw(new Line2D.Double(880, 380, 1075, 380));
-            g2.draw(new Line2D.Double(1075, 380, 1075, 475));
-        }
-        if (lightsState.w6On) {
-            g2.draw(new Line2D.Double(1240, 100, 1440, 100));
-            g2.draw(new Line2D.Double(1240, 100, 1240, 190));
-            g2.draw(new Line2D.Double(1440, 100, 1440, 190));
-        }
-        if (lightsState.w7On) {
-            g2.draw(new Line2D.Double(1240, 380, 1440, 380));
-            g2.draw(new Line2D.Double(1240, 380, 1240, 475));
-            g2.draw(new Line2D.Double(1440, 380, 1440, 475));
-        }
-        if (lightsState.l1On) {
-            g2.draw(new Line2D.Double(920, 215, 1390, 370));
-        }
-        if (lightsState.l2On) {
-            g2.draw(new Line2D.Double(920, 370, 1390, 215));
-        }
-        if (lightsState.l3On) {
-            g2.draw(new Line2D.Double(920, 260, 1390, 325));
-        }
-        if (lightsState.l4On) {
-            g2.draw(new Line2D.Double(920, 320, 1390, 265));
-        }
+
     }
 
+    private boolean lightIsOn(int i, LightsState lightsState) {
+        if (i == 0 && lightsState.L0) return true;
+        if (i == 1 && lightsState.L1) return true;
+        if (i == 2 && lightsState.L2) return true;
+        if (i == 3 && lightsState.L3) return true;
+        if (i == 4 && lightsState.L4) return true;
+        if (i == 5 && lightsState.L5) return true;
+        if (i == 6 && lightsState.L6) return true;
+        if (i == 7 && lightsState.L7) return true;
+        if (i == 8 && lightsState.L8) return true;
+        if (i == 9 && lightsState.L9) return true;
+        if (i == 10 && lightsState.L10) return true;
+        if (i == 11 && lightsState.L11) return true;
+        if (i == 12 && lightsState.L12) return true;
+        if (i == 13 && lightsState.L13) return true;
+        return false;
+    }
 
+    private void drawLightShape(LightShape lightShape, Graphics2D g2) {
+        g2.setPaint(getColorByName(lightShape.colorName));
+        Stroke st = new BasicStroke(4);
+        g2.setStroke(st);
+        for (Line line : lightShape.lines) {
+            g2.draw(new Line2D.Double(line.start.x, line.start.y, line.end.x, line.end.y));
+        }
+
+    }
+
+    private Paint getColorByName(String colorName) {
+        if ("R".equalsIgnoreCase(colorName)) {
+            return Color.RED;
+        } else if ("B".equalsIgnoreCase(colorName)) {
+            return Color.BLUE;
+        } else if ("G".equalsIgnoreCase(colorName)) {
+            return Color.GREEN;
+        }
+        return Color.WHITE;
+    }
 
 
 }

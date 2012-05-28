@@ -5,23 +5,24 @@ package kgi.cblt.christmas_light_show;
  * User: kgignatyev
  */
 public class LightsState implements StateSource {
-    public boolean roofOn, treeOn, w1On, w2On, w3On, w4On, w5On, w6On, w7On, l1On, l2On, l3On, l4On;
+    public boolean L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13;
 
     public int getState() {
         int i = 0;
-        if (roofOn) i += 1;
-        if (treeOn) i += 2;
-        if (w1On) i += 4;
-        if (w2On) i += 8;
-        if (w3On) i += 8192;
-        if (w4On) i += 32;
-        if (w5On) i += 64;
-        if (w6On) i += 128;
-        if (w7On) i += 256;
-        if (l1On) i += 512;
-        if (l2On) i += 1024;
-        if (l3On) i += 2048;
-        if (l4On) i += 4096;
+        if (L0) i += 1;
+        if (L1) i += 2;
+        if (L2) i += 4;
+        if (L3) i += 8;
+        if (L4) i += 16;
+        if (L5) i += 32;
+        if (L6) i += 64;
+        if (L7) i += 128;
+        if (L8) i += 256;
+        if (L9) i += 512;
+        if (L10) i += 1024;
+        if (L11) i += 2048;
+        if (L12) i += 4096;
+        if (L13) i += 8192;
         return i;
     }
 }
