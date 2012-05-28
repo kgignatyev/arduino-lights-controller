@@ -7,7 +7,6 @@ import java.util.Date;
  * User: max
  * Date: 12/31/10
  * Time: 2:51 PM
- * To change this template use File | Settings | File Templates.
  */
 public class WriterThread extends Thread{
 

@@ -1,7 +1,6 @@
 package kgi.cblt.christmas_light_show;
 
 import javazoom.jl.player.Player;
-import org.apache.log4j.Logger;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -19,7 +18,6 @@ public class MP3Player implements Runnable{
         this.fileName = fileName;
     }
 
-    final static Logger logger = Logger.getLogger(MP3Player.class);
 
     public static void main(String[] args) {
         MP3Player pl = new MP3Player( "src/test/4.mp3");

@@ -1,9 +1,0 @@
-Usage
-
-
-
-  After creating project and defining java classes and interfaces the command
- mvn package javadoc:javadoc site:site
- will generate complete site for the project
-
-
