@@ -20,16 +20,18 @@ public class LightShow {
         JFrame frame = new JFrame();
         frame.setTitle("Light Show");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        canvas = new Canvas(imgFileName, LightShapesReader.readShapes(lightShapesFileName),lightsState);
+        canvas = new Canvas(imgFileName, LightShapesReader.readShapes(lightShapesFileName), lightsState);
         frame.setContentPane(canvas);
         frame.setSize(canvas.img.getWidth(), canvas.img.getHeight());
         frame.setVisible(true);
         lightsAutoPlayer = new LightsAutoPlayer(lightsState);
         lightsAutoPlayer.start();
-        lightStateController = new LightStateController(lightsState,lightsAutoPlayer);
+        lightStateController = new LightStateController(lightsState, lightsAutoPlayer);
         frame.addKeyListener(lightStateController);
-        musicPlayer = new LightShowMusicPlayer(musicFileName);
-        musicPlayer.start();
+        if (musicFileName != null) {
+            musicPlayer = new LightShowMusicPlayer(musicFileName);
+            musicPlayer.start();
+        }
         arduinoCommunicator = new ArduinoCommunicator(lightsState);
         arduinoCommunicator.start();
     }
@@ -37,7 +39,8 @@ public class LightShow {
     public static void main(String[] args) {
         LightShow lightShow = new LightShow();
         try {
-            lightShow.run(args[0],args[1],args[2]);
+            String audioTrack = (args.length > 2) ? args[2] : null;
+            lightShow.run(args[0], args[1], audioTrack);
         } catch (Exception e) {
             e.printStackTrace();
         }

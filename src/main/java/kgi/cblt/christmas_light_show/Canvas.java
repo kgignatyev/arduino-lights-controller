@@ -88,6 +88,10 @@ public class Canvas extends JPanel {
             return Color.BLUE;
         } else if ("G".equalsIgnoreCase(colorName)) {
             return Color.GREEN;
+        } else if ("W".equalsIgnoreCase(colorName)) {
+            return Color.WHITE;
+        } else if ("Y".equalsIgnoreCase(colorName)) {
+            return Color.YELLOW;
         }
         return Color.WHITE;
     }
