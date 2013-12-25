@@ -55,7 +55,8 @@ public class ArduinoCommunicator extends Thread implements SerialPortEventListen
         while (ports.hasMoreElements()) {
             CommPortIdentifier commPortIdentifier = (CommPortIdentifier) ports.nextElement();
             String commPortIdentifierName = commPortIdentifier.getName();
-            if (commPortIdentifierName.startsWith("/dev/tty.usbmo")) {
+//            if (commPortIdentifierName.startsWith("/dev/tty.usbmo")) {
+            if (commPortIdentifierName.startsWith("/dev/tty.HC")) {
                 portIdentifier = commPortIdentifierName;
             }
             System.out.println("ports.nextElement() = " + commPortIdentifierName + "/" + commPortIdentifier.isCurrentlyOwned());
@@ -73,7 +74,8 @@ public class ArduinoCommunicator extends Thread implements SerialPortEventListen
         r = new ArduinoReader(input);
         r.setDaemon(false);
         r.start();
-        port.setSerialPortParams(115200,
+        //port.setSerialPortParams(115200,
+        port.setSerialPortParams(9600,
                 SerialPort.DATABITS_8,
                 SerialPort.STOPBITS_1,
                 SerialPort.PARITY_NONE);
